@@ -40,3 +40,9 @@ gem 'spring',        group: :development
 
 # Use Clearance
 gem 'clearance'
+
+# Semantic UI
+gem 'semantic-ui-sass'
+
+# Leaflet JS
+gem 'leaflet-rails'

@@ -6,9 +6,29 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="home">
 
-<%= yield %>
+<div id="menu" class="ui large vertical inverted labeled icon right sidebar menu active">
+  <div class="item">
+    <i class="inverted circular red awesome globe icon"></i>
+    <b>CruiseLog</b>
+    <div>
+<% if signed_in? %>
+        <%= link_to 'Sign out', sign_out_path, method: :delete, class: "item" %>
+<% else %>
+        <%= link_to 'Sign in', sign_in_path, class: "item" %>
+<% end %>
+    </div>
+  </div>
+  <%= yield %>
+</div>
+
+<div id="map">
+</div>
+
+<script>
+  clInitMap();
+</script>
 
 </body>
 </html>
