@@ -1,0 +1,10 @@
+<div class="item">
+  <b>Listing ports</b>
+  <div class="menu">
+    <% @ports.each do |port| %>
+      <%= link_to port.title, port, id: "link_port_#{port.id}", class: "item" %></td>
+      <% map_marker(port) %>
+    <% end %>
+    <%= link_to 'New Port', new_port_path, class: "item"%>
+  </div>
+</div>

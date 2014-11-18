@@ -11,23 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118165435) do
+ActiveRecord::Schema.define(version: 20141118173509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
-
-# Could not dump table "cruise_sections" because of following StandardError
-#   Unknown type 'geography(LineString,4326)' for column 'route'
-
-  create_table "cruises", force: true do |t|
-    t.string   "title"
-    t.integer  "ship_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "cruises", ["ship_id"], name: "index_cruises_on_ship_id", using: :btree
 
   create_table "lines", force: true do |t|
     t.string   "title"
@@ -38,26 +26,9 @@ ActiveRecord::Schema.define(version: 20141118165435) do
   create_table "ports", force: true do |t|
     t.string   "title"
     t.string   "country",    limit: 2
-    t.integer  "latlon",     limit: 0
+    t.spatial  "location",   limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "ships", force: true do |t|
-    t.string   "title"
-    t.string   "line"
-    t.integer  "port_of_registry_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ships", ["port_of_registry_id"], name: "index_ships_on_port_of_registry_id", using: :btree
-
-  create_table "spatial_ref_sys", primary_key: "srid", force: true do |t|
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
   end
 
   create_table "users", force: true do |t|
@@ -69,7 +40,7 @@ ActiveRecord::Schema.define(version: 20141118165435) do
     t.string   "remember_token",     limit: 128, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

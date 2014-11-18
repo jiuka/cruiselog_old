@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @port.title %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @port.country %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @port.location %>
+</p>
+
+<%= link_to 'Edit', edit_port_path(@port) %> |
+<%= link_to 'Back', ports_path %>
