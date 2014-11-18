@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117185744) do
+ActiveRecord::Schema.define(version: 20141118165435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 20141117185744) do
   end
 
   add_index "cruises", ["ship_id"], name: "index_cruises_on_ship_id", using: :btree
+
+  create_table "lines", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ports", force: true do |t|
     t.string   "title"

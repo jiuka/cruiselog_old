@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Line.create([
+  { title: 'Cunard Line' },
+  { title: 'Holland-America Line' },
+])
