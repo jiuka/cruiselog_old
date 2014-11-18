@@ -1,4 +1,14 @@
 class Port < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+      :title,
+      [:title, :country],
+      [:title, :country, :latitude, :longitude]
+    ]
+  end
 
   def location
     "#{self[:location] && self[:location].x || 50.88496}N #{self[:location] && self[:location].y || 1.3969}W"

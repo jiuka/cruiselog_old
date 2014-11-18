@@ -47,3 +47,5 @@ gem 'semantic-ui-sass'
 
 # Leaflet JS
 gem 'leaflet-rails'
+
+gem 'friendly_id', '~> 5.0.0'

@@ -1,3 +1,4 @@
+<div class="item">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +16,8 @@
   <%= @port.location %>
 </p>
 
-<%= link_to 'Edit', edit_port_path(@port) %> |
-<%= link_to 'Back', ports_path %>
+<div class="menu">
+<%= link_to 'Edit', edit_port_path(@port), class: "item" %>
+<%= link_to 'Back', ports_path, class: "item" %>
+</div>
+</div>
