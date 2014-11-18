@@ -1,0 +1,37 @@
+<%%= form_for(@<%= singular_table_name %>, html: {class: "ui error form"}) do |f| %>
+  <%% if @<%= singular_table_name %>.errors.any? %>
+    <div class="ui error message">
+      <div class="header">><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</div>
+
+      <ul class="list">
+      <%% @<%= singular_table_name %>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+<% attributes.each do |attribute| -%>
+  <div class="field">
+<% if attribute.password_digest? -%>
+    <%%= f.label :password %><br>
+    <%%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%%= f.label :password_confirmation %><br>
+    <%%= f.password_field :password_confirmation %>
+<% else -%>
+  <%- if attribute.reference? -%>
+    <%%= f.label :<%= attribute.column_name %> %><br>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
+  <%- else -%>
+    <%%= f.label :<%= attribute.name %> %><br>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+  <%- end -%>
+<% end -%>
+  </div>
+<% end -%>
+  <div class="actions">
+    <%%= f.submit class: "ui blue submit button"%>
+  </div>
+<%% end %>
