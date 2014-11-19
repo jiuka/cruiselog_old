@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119163219) do
+ActiveRecord::Schema.define(version: 20141119171041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 20141119163219) do
     t.integer  "port_of_origin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "ships", ["line_id"], :name => "index_ships_on_line_id"
   add_index "ships", ["port_of_origin_id"], :name => "index_ships_on_port_of_origin_id"
+  add_index "ships", ["slug"], :name => "index_ships_on_slug", :unique => true
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
