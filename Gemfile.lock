@@ -44,6 +44,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    countries (0.9.3)
+      currencies (~> 0.4.2)
+    country_select (2.1.0)
+      countries (~> 0.9, >= 0.9.3)
+    currencies (0.4.2)
     email_validator (1.4.0)
       activemodel
     erubis (2.7.0)
@@ -135,6 +140,8 @@ DEPENDENCIES
   activerecord-postgis-adapter
   clearance
   coffee-rails (~> 4.0.0)
+  countries
+  country_select
   friendly_id (~> 5.0.0)
   jbuilder (~> 2.0)
   jquery-rails

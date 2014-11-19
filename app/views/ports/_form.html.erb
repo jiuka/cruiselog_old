@@ -17,7 +17,7 @@
   </div>
   <div class="ui mini input field">
     <%= f.label :country %>
-    <%= f.text_field :country %>
+    <%= f.country_select :country, format: :with_alpha2 %>
   </div>
   <div class="ui disabled mini input field">
     <%= f.label :location %>

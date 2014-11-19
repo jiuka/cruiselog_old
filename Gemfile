@@ -48,4 +48,9 @@ gem 'semantic-ui-sass'
 # Leaflet JS
 gem 'leaflet-rails'
 
+# FriendlyID for nice urls
 gem 'friendly_id', '~> 5.0.0'
+
+# Handle the countries
+gem 'countries'
+gem 'country_select'
