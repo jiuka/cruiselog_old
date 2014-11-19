@@ -29,3 +29,17 @@
 
 @markerDrag = (e) ->
   $('#port_location').attr('value',e.target._latlng.lat.toFixed(5) + 'N ' + e.target._latlng.lng.toFixed(5) + 'E')
+
+@newPort = () ->
+  port =
+    id: 0,
+    latitude: map.getCenter().lat
+    longitude: map.getCenter().lng
+    title: 'NEW'
+  addPortMarker port
+  editPort port
+
+  map.on 'click', (e) ->
+    portMarkers[0].setLatLng e.latlng
+    $('#port_location').attr 'value', e.latlng.lat.toFixed(5) + 'N ' + e.latlng.lng.toFixed(5) + 'E'
+
