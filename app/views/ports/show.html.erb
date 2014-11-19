@@ -17,7 +17,9 @@
 </p>
 
 <div class="menu">
-<%= link_to 'Edit', edit_port_path(@port), class: "item" %>
-<%= link_to 'Back', ports_path, class: "item" %>
+  <%= link_to edit_port_path(@port), class: "item" do %>Edit <i class="pencil icon"></i><% end %>
+  <%= link_to @port, method: :delete, data: { confirm: 'Are you sure?' }, class: "item" do %>Delete <i class="red delete icon"></i><% end %>
+  <%= link_to ports_path, class: "item" do %>Back <i class="left icon"></i><% end %>
 </div>
 </div>
+<% map_marker(@port) %>

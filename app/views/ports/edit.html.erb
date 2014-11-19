@@ -4,3 +4,10 @@
 
 <%= link_to 'Show', @port %> |
 <%= link_to 'Back', ports_path %>
+<% map_marker(@port) %>
+<script>
+$(function() {
+    editPort(<%= raw(@port.to_json) %>)
+});
+</script>
+

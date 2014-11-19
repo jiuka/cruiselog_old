@@ -21,3 +21,11 @@
   $('#link_port_' + port.id).bind 'click', (event) -> 
     panToPort port
   m.addTo(map);
+
+@editPort = (port) ->
+  portMarkers[port.id].dragging.enable()
+  map.panTo([port.latitude, port.longitude])
+  portMarkers[port.id].on('drag', markerDrag);
+
+@markerDrag = (e) ->
+  $('#port_location').attr('value',e.target._latlng.lat.toFixed(5) + 'N ' + e.target._latlng.lng.toFixed(5) + 'E')

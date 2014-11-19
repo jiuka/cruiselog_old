@@ -1,9 +1,19 @@
 <div class="item">
   <b>Listing ports</b>
   <div class="menu">
-    <% @ports.each do |port| %>
-      <%= link_to port.title, port, id: "link_port_#{port.id}", class: "item" %></td>
-      <% map_marker(port) %>
+      <% @ports.each do |port| %>
+      <div class="item">
+        <%= link_to port.title, port, id: "link_port_#{port.id}", class: "item" %></td>
+         <div class="ui mini icon buttons">
+          <div class="ui invertet basic button">
+              <i class="pencil icon"></i>
+            </div>
+          <div class="ui invertet basic button">
+              <i class="red delete icon"></i>
+            </div>
+      </div>   
+    <% map_marker(port) %>
+  </div>
     <% end %>
     <%= link_to 'New Port', new_port_path, class: "item"%>
   </div>
