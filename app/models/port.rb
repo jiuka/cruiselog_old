@@ -11,7 +11,7 @@ class Port < ActiveRecord::Base
   end
 
   def location
-    "#{self[:location] && self[:location].x || 50.88496}N #{self[:location] && self[:location].y || 1.3969}W"
+    "#{latitude.abs}#{latitude>0?'N':'S'} #{longitude.abs}#{longitude>0?'E':'W'}"
   end
 
   def location=(s)
@@ -30,11 +30,11 @@ class Port < ActiveRecord::Base
   end
 
   def latitude
-    self[:location] && self[:location].x
+    self[:location] && self[:location].x || 50.88496
   end
 
   def longitude
-    self[:location] && self[:location].y
+    self[:location] && self[:location].y || -1.3969
   end
 
   def to_json
