@@ -1,0 +1,29 @@
+<%= form_for(@ship, html: {class: "ui error form"}) do |f| %>
+  <% if @ship.errors.any? %>
+    <div class="ui error message">
+      <div class="header">><%= pluralize(@ship.errors.count, "error") %> prohibited this ship from being saved:</div>
+
+      <ul class="list">
+      <% @ship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :line_id %><br>
+    <%= f.collection_select :line_id, Line.all, :id, :title%>
+  </div>
+  <div class="field">
+    <%= f.label :port_of_origin_id %><br>
+    <%= f.collection_select :port_of_origin_id, Port.all, :id, :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "ui blue submit button"%>
+  </div>
+<% end %>

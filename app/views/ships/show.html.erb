@@ -1,0 +1,21 @@
+<div class="item">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ship.title %>
+</p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @ship.line %>
+</p>
+
+<p>
+  <strong>Port of origin:</strong>
+  <%= @ship.port_of_origin %>
+</p>
+
+<%= link_to 'Edit', edit_ship_path(@ship) %> |
+<%= link_to 'Back', ships_path %>
+</div>

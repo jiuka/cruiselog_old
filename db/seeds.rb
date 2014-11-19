@@ -15,3 +15,16 @@ Port.create([
   { title: 'Southampton', country: 'UK', location: '50.88496N 1.3969W' },
   { title: 'Liverpool', country: 'UK', location: '53.4076N 3.00106W' },
 ])
+
+Ship.create([
+  {
+    title: 'Queen Mary 2',
+    line: Line.find_by(:title => 'Cunard Line'),
+    port_of_origin: Port.find_by(:title => 'Southampton')
+  },
+  {
+    title: 'Queen Elisabeth',
+    line: Line.find_by(:title => 'Cunard Line'),
+    port_of_origin: Port.find_by(:title => 'Southampton')
+  },
+])

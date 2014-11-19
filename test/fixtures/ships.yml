@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  line_id: 
+  port_of_origin_id: 
+
+two:
+  title: MyString
+  line_id: 
+  port_of_origin_id: 
