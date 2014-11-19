@@ -54,3 +54,7 @@ gem 'friendly_id', '~> 5.0.0'
 # Handle the countries
 gem 'countries'
 gem 'country_select'
+
+group :development, :test do
+  gem 'rspec-rails'
+end
