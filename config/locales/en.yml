@@ -4,6 +4,8 @@ en:
     lines: lines
     ports: ports
     ships: ships
+    edit: edit
+    new: new
   port_of: "Port of %{port}"
   back: Back
   show: Show

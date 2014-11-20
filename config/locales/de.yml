@@ -1,7 +1,7 @@
 --- 
 de:
   routes:
-    lines: linien
+    lines: reedereien
     ports: haefen
     ships: schiffe
     edit: bearbeiten

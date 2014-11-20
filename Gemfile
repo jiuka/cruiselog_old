@@ -60,4 +60,5 @@ gem 'route_translator'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'i18n-tasks', require: false
 end
