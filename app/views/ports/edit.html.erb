@@ -1,13 +1,12 @@
-<h1>Editing port</h1>
+<div class="item">
+  <b><%=t :port_of, port: @port.title %></b>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @port %> |
-<%= link_to 'Back', ports_path %>
+</div>
+<%= link_to t(:show), @port, class: "item" %>
+<%= link_to t(:back), ports_path, class: "item" %>
 <% map_marker(@port) %>
-<script>
-$(function() {
-    editPort(<%= raw(@port.to_json) %>)
-});
-</script>
+<% content_for :post_map_js do %>
+editPort(<%= raw(@port.to_json) %>)
+<% end %>
 

@@ -1,10 +1,7 @@
 <div class="item">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @port.title %>
-</p>
+  <b><%=t :port_of, port: @port.title %></b>
 
 <p>
   <strong>Country:</strong>
@@ -19,7 +16,7 @@
 <div class="menu">
   <%= link_to edit_port_path(@port), class: "item" do %>Edit <i class="pencil icon"></i><% end %>
   <%= link_to @port, method: :delete, data: { confirm: 'Are you sure?' }, class: "item" do %>Delete <i class="red delete icon"></i><% end %>
-  <%= link_to ports_path, class: "item" do %>Back <i class="left icon"></i><% end %>
+  <%= link_to ports_path, class: "item" do %><%=t :back %> <i class="left icon"></i><% end %>
 </div>
 </div>
 <% map_marker(@port) %>

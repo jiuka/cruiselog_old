@@ -1,11 +1,9 @@
-<h1>New port</h1>
+<div class="item">
+  <b>New port</b>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', ports_path %>
-
-<script>
-$(function() {
+</div>
+<%= link_to 'Back', ports_path, class: "item" %>
+<% content_for :post_map_js do %>
   newPort();
-});
-</script>
+<% end %>
