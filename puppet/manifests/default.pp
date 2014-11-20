@@ -5,9 +5,9 @@ node default {
   class { 'postgresql::server': } 
   class { 'postgresql::server::postgis': } 
 
-  postgresql::server::db { 'cruiselog_development':
-    user     => 'vagrant',
-    password => postgresql_password('cruiselog','queenmary2'),
+  postgresql::server::role { 'vagrant':
+    superuser => true,
+    password  => postgresql_password('cruiselog','queenmary2'),
   }
 
   postgresql::server::pg_hba_rule { 'allow to access db':
@@ -18,5 +18,8 @@ node default {
     user        => 'vagrant',
     auth_method => 'ident',
   }
+
+  apt::ppa { 'brightbox/ruby-ng': } ->
+  package { [ 'ruby2.1', 'ruby2.1-dev' ]: )
 
 }
