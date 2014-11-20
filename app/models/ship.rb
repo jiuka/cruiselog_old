@@ -8,8 +8,12 @@ class Ship < ActiveRecord::Base
   def slug_candidates
     [
       :title,
-      [line.title, :title],
+      [:line_title, :title],
     ]
+  end
+
+  def line_title
+    line && line.title || nil
   end
 
 end
