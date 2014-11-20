@@ -28,3 +28,10 @@ Ship.create([
     port_of_origin: Port.find_by(:title => 'Southampton')
   },
 ])
+
+Cruise.create([
+  {
+    title: 'Q123',
+    ship: Ship.find_by(:title => 'Queen Mary 2')
+  }
+])

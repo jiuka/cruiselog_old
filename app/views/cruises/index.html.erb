@@ -1,0 +1,10 @@
+<div class="item">
+  <b>Listing cruises</b>
+  <div class="menu">
+    <% @cruises.each do |cruise| %>
+      <%= link_to "#{cruise.title} - #{cruise.ship.title}", cruise, class: "item" %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'New Cruise', new_cruise_path, class: "item" %>

@@ -1,0 +1,16 @@
+<div class="item">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @cruise.title %>
+</p>
+
+<p>
+  <strong>Ship:</strong>
+  <%= @cruise.ship %>
+</p>
+
+<%= link_to 'Edit', edit_cruise_path(@cruise) %> |
+<%= link_to 'Back', cruises_path %>
+</div>
