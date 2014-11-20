@@ -1,26 +1,19 @@
 <div class="item">
-<b>Listing lines</b></div>
-<table class="ui inverted table segment">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <b>Listing lines</b>
+  <div class="menu">
     <% @lines.each do |line| %>
-      <tr>
-        <td><%= line.title %></td>
-        <td><%= link_to 'Show', line %></td>
-        <td><%= link_to 'Edit', edit_line_path(line) %></td>
-        <td><%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="item">
+        <%= link_to line.title, line %>
+        <div class="ui mini icon buttons">
+          <div class="ui invertet basic button">
+            <%= link_to edit_line_path(line) do %><i class="pencil icon"></i><% end %>
+          </div>
+          <div class="ui invertet basic button">
+            <%= link_to line, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="red delete icon"></i><% end %>
+          </div>
+      </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Line', new_line_path, class: "item" %>
+    <%= link_to 'New Line', new_line_path, class: "item"%>
+  </div>
 </div>
