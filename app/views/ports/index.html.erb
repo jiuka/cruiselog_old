@@ -1,5 +1,5 @@
 <div class="item">
-  <b>Listing ports</b>
+  <b><%=t '.list_ports' %></b>
   <div class="menu">
     <% @ports.each do |port| %>
       <div class="item">
@@ -15,6 +15,6 @@
         <% map_marker(port) %>
       </div>
     <% end %>
-    <%= link_to 'New Port', new_port_path, class: "item"%>
+    <%= link_to t('.new_port'), new_port_path, class: "item"%>
   </div>
 </div>

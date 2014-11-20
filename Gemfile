@@ -55,6 +55,9 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'countries'
 gem 'country_select'
 
+# Localised Routes
+gem 'route_translator'
+
 group :development, :test do
   gem 'rspec-rails'
 end

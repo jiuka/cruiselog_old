@@ -1,0 +1,8 @@
+--- 
+de:
+  routes:
+    lines: linien
+    ports: haefen
+    ships: schiffe
+    edit: bearbeiten
+    new: neu

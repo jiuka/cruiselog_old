@@ -99,6 +99,7 @@ GEM
     rgeo-activerecord (1.2.0)
       activerecord (~> 4.0)
       rgeo (~> 0.3)
+    route_translator (3.2.4)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -165,6 +166,7 @@ DEPENDENCIES
   leaflet-rails
   pg
   rails (= 4.1.7)
+  route_translator
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
