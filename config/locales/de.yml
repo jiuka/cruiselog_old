@@ -6,6 +6,7 @@ de:
     ships: schiffe
     edit: bearbeiten
     new: neu
+    add: hinzufuegen
   port_of: "Hafen von %{port}"
   back: Zurück
   show: Anzeigen

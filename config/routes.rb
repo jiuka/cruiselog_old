@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     resources :ships
     resources :ports
     resources :lines
-    resources :cruises do
-      resources :cruise_segments, path: 'segments'
+     resources :cruises
+    resources :cruises, only: [:index, :create] do
+      resources :cruise_segments, only: [:index, :create], path: 'segments'
+      resources :cruise_segments, except: [:index, :create], path: '', path_names: { new: 'add'}
     end
   end
 end
