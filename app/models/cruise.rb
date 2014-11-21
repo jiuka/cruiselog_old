@@ -12,4 +12,8 @@ class Cruise < ActiveRecord::Base
     ]
   end
 
+  def ports
+    [self.segments[0].from] + self.segments.map { |p| p.to }
+  end
+
 end

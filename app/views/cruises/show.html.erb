@@ -1,16 +1,20 @@
 <div class="item">
-<p id="notice"><%= notice %></p>
+  <b><%= @cruise.ship.title %> - <%= @cruise.title %></b>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @cruise.title %>
-</p>
-
-<p>
-  <strong>Ship:</strong>
-  <%= @cruise.ship %>
-</p>
+  <div class="menu">
+    <% @cruise.ports.each do |port| %>
+      <%= link_to port.title, port, class: "item" %>
+    <% end %>
+  </div>
 
 <%= link_to 'Edit', edit_cruise_path(@cruise) %> |
 <%= link_to 'Back', cruises_path %>
 </div>
+
+<% content_for :post_map_js do %>
+  <% @cruise.segments.each do |segment| %>
+  addCruiseSegment('<%= segment.friendly_id %>', <%= segment.route %>);
+  <% end %>
+<% end %>
+
