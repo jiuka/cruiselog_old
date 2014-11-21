@@ -1,0 +1,21 @@
+<div class="item">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cruise:</strong>
+  <%= @cruise_segment.cruise.title %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @cruise_segment.from.title %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @cruise_segment.to.title %>
+</p>
+
+<%= link_to 'Edit', edit_cruise_cruise_segment_path(@cruise_segment.cruise_id, @cruise_segment) %> |
+<%= link_to 'Back', cruise_cruise_segments_path %>
+</div>

@@ -35,3 +35,16 @@ Cruise.create([
     ship: Ship.find_by(:title => 'Queen Mary 2')
   }
 ])
+
+CruiseSegment.create([
+  {
+    cruise: Cruise.find_by(:title => 'Q123'),
+    from: Port.find_by(:title => 'Southampton'),
+    to: Port.find_by(:title => 'Liverpool'),
+  },
+  {
+    cruise: Cruise.find_by(:title => 'Q123'),
+    from: Port.find_by(:title => 'Liverpool'),
+    to: Port.find_by(:title => 'Cobh'),
+  }
+])

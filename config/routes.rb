@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :ships
     resources :ports
     resources :lines
-    resources :cruises
+    resources :cruises do
+      resources :cruise_segments, path: 'segments'
+    end
   end
 end

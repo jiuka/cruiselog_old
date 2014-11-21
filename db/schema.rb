@@ -11,11 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120191445) do
+ActiveRecord::Schema.define(version: 20141120192618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "cruise_segments", force: true do |t|
+    t.integer  "cruise_id"
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.spatial  "route",      limit: {:srid=>4326, :type=>"line_string", :geographic=>true}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cruise_segments", ["cruise_id"], :name => "index_cruise_segments_on_cruise_id"
+  add_index "cruise_segments", ["from_id"], :name => "index_cruise_segments_on_from_id"
+  add_index "cruise_segments", ["to_id"], :name => "index_cruise_segments_on_to_id"
 
   create_table "cruises", force: true do |t|
     t.string   "title"
