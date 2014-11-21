@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120192618) do
+ActiveRecord::Schema.define(version: 20141121070302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20141120192618) do
     t.integer  "ship_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "cruises", ["ship_id"], :name => "index_cruises_on_ship_id"
+  add_index "cruises", ["slug"], :name => "index_cruises_on_slug", :unique => true
 
   create_table "lines", force: true do |t|
     t.string   "title"

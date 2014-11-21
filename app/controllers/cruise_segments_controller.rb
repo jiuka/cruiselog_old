@@ -4,7 +4,7 @@ class CruiseSegmentsController < ApplicationController
   # GET /cruise_segments
   # GET /cruise_segments.json
   def index
-    @cruise_segments = CruiseSegment.where(:cruise_id => params[:cruise_id])
+    @cruise_segments = Cruise.friendly.find(params[:cruise_id]).segments
   end
 
   # GET /cruise_segments/1
