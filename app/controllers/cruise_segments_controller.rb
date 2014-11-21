@@ -64,7 +64,7 @@ class CruiseSegmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cruise_segment
-      @cruise_segment = CruiseSegment.find(params[:id])
+      @cruise_segment = Cruise.friendly.find(params[:cruise_id]).segments.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

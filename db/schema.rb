@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121070302) do
+ActiveRecord::Schema.define(version: 20141121092534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 20141121070302) do
     t.spatial  "route",      limit: {:srid=>4326, :type=>"line_string", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "cruise_segments", ["cruise_id"], :name => "index_cruise_segments_on_cruise_id"
   add_index "cruise_segments", ["from_id"], :name => "index_cruise_segments_on_from_id"
+  add_index "cruise_segments", ["slug", "cruise_id"], :name => "index_cruise_segments_on_slug_and_cruise_id", :unique => true
   add_index "cruise_segments", ["to_id"], :name => "index_cruise_segments_on_to_id"
 
   create_table "cruises", force: true do |t|
