@@ -1,4 +1,4 @@
-<%= form_for(@cruise_segment, url: cruise_cruise_segments_path, html: {class: "ui error form"}) do |f| %>
+<%= form_for(@cruise_segment, html: {class: "ui error form"}) do |f| %>
   <% if @cruise_segment.errors.any? %>
     <div class="ui error message">
       <div class="header">><%= pluralize(@cruise_segment.errors.count, "error") %> prohibited this cruise_segment from being saved:</div>

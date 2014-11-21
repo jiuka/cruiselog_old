@@ -16,9 +16,9 @@
       <tr>
         <td><%= cruise_segment.from.title %></td>
         <td><%= cruise_segment.to.title %></td>
-        <td><%= link_to 'Show', cruise_cruise_segment_path(cruise_segment.cruise_id, cruise_segment.id) %></td>
-        <td><%= link_to 'Edit', edit_cruise_cruise_segment_path(cruise_segment.cruise_id, cruise_segment.id) %></td>
-        <td><%= link_to 'Destroy', cruise_cruise_segment_path(cruise_segment.cruise_id, cruise_segment.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', cruise_segment %></td>
+        <td><%= link_to 'Edit', edit_cruise_segment_path(cruise_segment) %></td>
+        <td><%= link_to 'Destroy', cruise_segment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,7 +26,7 @@
 
 <br>
 
-<%= link_to 'New Cruise segment', new_cruise_cruise_segment_path %>
+<%= link_to 'New Cruise segment', new_cruise_segment_path %>
 </div>
 <% content_for :post_map_js do %>
   <% @cruise_segments.each do |cruise_segment| %>
