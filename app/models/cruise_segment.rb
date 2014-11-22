@@ -21,7 +21,9 @@ class CruiseSegment < ActiveRecord::Base
 
   def route
     if self[:route]
-      self[:route].points.map { |p| [p.x, p.y] }
+      [[self.from.latitude, self.from.longitude]] +
+        self[:route].points[1, self[:route].points.length-2].map { |p| [p.x, p.y] } +
+        [[self.to.latitude, self.to.longitude]]
     else
      [
        [self.from.latitude, self.from.longitude],
