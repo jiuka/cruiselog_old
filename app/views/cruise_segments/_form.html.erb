@@ -15,14 +15,25 @@
     <%= f.label :cruise_id %><br>
     <%= f.collection_select :cruise_id, Cruise.all, :id, :title%>
   </div>
+
   <div class="field">
-    <%= f.label :from_id %><br>
+    <%= f.label :from_id %>
     <%= f.collection_select :from_id, Port.all, :id, :title%>
   </div>
+  <div class="field">
+    <%= f.label :leave %>
+    <%= f.datetime_select :leave, :ampm => false, :minute_step => 15 %>
+  </div>
+
   <div class="field">
     <%= f.label :to_id %><br>
     <%= f.collection_select :to_id, Port.all, :id, :title%>
   </div>
+  <div class="field">
+    <%= f.label :arrive %>
+    <%= f.datetime_select :arrive, :ampm => false, :minute_step => 15 %>
+  </div>
+
   <div class="field">
     <%= f.label :route %><br>
     <%= f.text_field :route %>

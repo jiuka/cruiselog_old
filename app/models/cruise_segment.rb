@@ -14,12 +14,16 @@ class CruiseSegment < ActiveRecord::Base
 
   def route=(s)
     f = RGeo::Geographic.spherical_factory(:srid => 4326)
-    self[:route] = f.line_string(s.scan(/LatLng\(([0-9\.\-]+), ([0-9\.\-]+)\)/).map do |lat,lon|
+    r = f.line_string(s.scan(/LatLng\(([0-9\.\-]+), ([0-9\.\-]+)\)/).map do |lat,lon|
       f.point(lat, lon)
     end)
+    if r.length >= 2
+      self[:route] = route
+    end
   end
 
   def route
+    logger.debug "Points #{self[:route].points}"
     if self[:route]
       [[self.from.latitude, self.from.longitude]] +
         self[:route].points[1, self[:route].points.length-2].map { |p| [p.x, p.y] } +

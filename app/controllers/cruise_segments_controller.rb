@@ -69,6 +69,6 @@ class CruiseSegmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cruise_segment_params
-      params.require(:cruise_segment).permit(:cruise_id, :from_id, :to_id, :route)
+      params.require(:cruise_segment).permit(:cruise_id, :from_id, :to_id, :route, :leave, :arrive)
     end
 end
