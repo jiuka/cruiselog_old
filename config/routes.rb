@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   localized do
-    resources :ships
+    resources :ships do
+      resources :port_of_calls
+    end
     resources :ports
     resources :lines
      resources :cruises

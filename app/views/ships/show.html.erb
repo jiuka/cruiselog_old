@@ -1,21 +1,32 @@
 <div class="item">
-<p id="notice"><%= notice %></p>
+  <b><%= @ship.title %></b>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @ship.title %>
-</p>
-
-<p>
+  <p>
   <strong>Line:</strong>
   <%= @ship.line %>
 </p>
 
-<p>
+  <p>
   <strong>Port of origin:</strong>
-  <%= @ship.port_of_origin %>
-</p>
+  <%= @ship.port_of_origin.title %>
+  </p>
+
+
 
 <%= link_to 'Edit', edit_ship_path(@ship) %> |
 <%= link_to 'Back', ships_path %>
+<%= link_to 'New Port of call', new_ship_port_of_call_path(@ship) %>
 </div>
+
+<% content_for :post_map_js do %>
+  <% @ship.port_of_call.each do |poc| %>
+    <% map_marker(poc.port) %>
+  <% end %>
+  L.polyline([
+  <% @ship.port_of_call.each do |poc| %>
+    [<%= poc.port.latitude %>,<%= poc.port.longitude %>],
+  <% end %>
+  ]).addTo(map);
+<% end %>
+

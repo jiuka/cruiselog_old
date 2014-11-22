@@ -2,8 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-@portIcon = L.divIcon { className: 'none', html: '<i class="inverted circular anchor icon"></i>' }
-@portIconActive = L.divIcon { className: 'none', html: '<i class="inverted circular red anchor icon"></i>' }
+@portIcon = L.divIcon
+  className: 'none'
+  html: '<i class="inverted circular anchor icon"></i>'
+  size: L.point 24, 24
+  iconAnchor: L.point 12, 12
+@portIconActive = L.divIcon
+  className: 'none'
+  html: '<i class="inverted circular red anchor icon"></i>'
+  size: L.point 24, 24
+  iconAnchor: L.point 12, 12
 
 @portMarkers = []
 

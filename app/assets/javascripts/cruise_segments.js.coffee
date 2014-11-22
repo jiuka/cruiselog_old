@@ -4,7 +4,7 @@
 
 
 @segmentMarkerMove = L.divIcon { className: 'none', html: '<i class="inverted circular mini fullscreen icon"></i>' }
-@segmentMarkerAdd = L.divIcon { className: 'none', html: '<i class="inverted circular mini add icon"></i>' }
+@segmentMarkerAdd = L.divIcon { className: 'none', html: '<i class="inverted circular mini add icon"></i>', size: L.point(24, 24), iconAnchor: L.point(12, 12) }
 
 @cruiseSegments = {}
 

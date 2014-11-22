@@ -1,0 +1,31 @@
+<%= form_for(@port_of_call, html: {class: "ui error form"}) do |f| %>
+  <% if @port_of_call.errors.any? %>
+    <div class="ui error message">
+      <div class="header">><%= pluralize(@port_of_call.errors.count, "error") %> prohibited this port_of_call from being saved:</div>
+
+      <ul class="list">
+      <% @port_of_call.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field(:ship_id) %>
+
+  <div class="field">
+    <%= f.label :port_id %>
+    <%= f.collection_select :port_id, Port.all, :id, :title %>
+  </div>
+  <div class="field">
+    <%= f.label :arrive %><br>
+    <%= f.datetime_select :arrive %>
+  </div>
+  <div class="field">
+    <%= f.label :leave %><br>
+    <%= f.datetime_select :leave %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "ui blue submit button"%>
+  </div>
+<% end %>
