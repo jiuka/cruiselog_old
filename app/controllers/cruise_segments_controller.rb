@@ -15,6 +15,10 @@ class CruiseSegmentsController < ApplicationController
   # GET /cruise_segments/new
   def new
     @cruise_segment = CruiseSegment.new
+    @cruise_segment.cruise = Cruise.friendly.find(params[:cruise_id])
+    if params[:from_id]
+      @cruise_segment[:from_id] = params[:from_id]
+    end
   end
 
   # GET /cruise_segments/1/edit
@@ -28,6 +32,7 @@ class CruiseSegmentsController < ApplicationController
 
     respond_to do |format|
       if @cruise_segment.save
+        @cruise_segment.reload
         format.html { redirect_to @cruise_segment.cruise, notice: 'Cruise segment was successfully created.' }
         format.json { render :show, status: :created, location: @cruise_segment }
       else

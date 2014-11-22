@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cruise_id %><br>
-    <%= f.collection_select :cruise_id, Cruise.all, :id, :title%>
-  </div>
+  <%= f.hidden_field(:cruise_id, ) %>
 
   <div class="field">
     <%= f.label :from_id %>
-    <%= f.collection_select :from_id, Port.all, :id, :title%>
+    <% if @cruise_segment.from_id %>
+      <%= f.hidden_field(:from_id) %>
+      <%= @cruise_segment.from.title %>
+    <% else %>
+      <%= f.collection_select :from_id, Port.all, :id, :title%>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :leave %>

@@ -1,7 +1,7 @@
 module CruiseSegmentsHelper
 
-  def cruise_segments_path
-    cruise_cruise_segments_path
+  def cruise_segments_path(url_options = {})
+    cruise_cruise_segments_path(url_options)
   end
 
   def cruise_segment_path(segment, url_options = {})
