@@ -13,7 +13,11 @@ class Cruise < ActiveRecord::Base
   end
 
   def ports
-    [self.segments[0].from] + self.segments.map { |p| p.to }
+    if self.segments.length > 0
+      [self.segments[0].from] + self.segments.map { |p| p.to }
+    else
+      []
+    end
   end
 
 end
