@@ -9,13 +9,25 @@ class PortOfCall < ActiveRecord::Base
   validates :arrive , date: { before: :leave }
 
   def arrive=(s)
-    self[:arrive] = s
-    updateOrderDate
+    Time.use_zone(port.try(:tz) || 'UTC') do
+      self[:arrive] = Time.zone.parse s
+      updateOrderDate
+    end
+  end
+
+  def arrive
+    self[:arrive].in_time_zone(port.try(:tz) || 'UTC')
   end
 
   def leave=(s)
-    self[:leave] = s
-    updateOrderDate
+    Time.use_zone(port.try(:tz) || 'UTC') do
+      self[:leave] = Time.zone.parse s
+      updateOrderDate
+    end
+  end
+
+  def leave
+    self[:leave].in_time_zone(port.try(:tz) || 'UTC')
   end
 
   private

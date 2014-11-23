@@ -17,8 +17,13 @@
   </div>
   <div class="ui mini input field">
     <%= f.label :country %>
-    <%= f.country_select :country, format: :with_alpha2 %>
+    <%= f.country_select :country, selected: @port.country.alpha2, format: :with_alpha2 %>
   </div>
+  <div class="ui mini input field">
+    <%= f.label :tz %>
+    <%= f.time_zone_select( :tz, Regexp.new(@port.country.region)) %>
+  </div>
+
   <div class="ui disabled mini input field">
     <%= f.label :location %>
     <div class="ui left labeled icon input">

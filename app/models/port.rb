@@ -10,6 +10,10 @@ class Port < ActiveRecord::Base
     ]
   end
 
+  def country
+    Country[self[:country]]
+  end
+
   def location
     "#{latitude.abs}#{latitude>0?'N':'S'} #{longitude.abs}#{longitude>0?'E':'W'}"
   end
