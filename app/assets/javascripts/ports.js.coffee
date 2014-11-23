@@ -2,28 +2,33 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-@portIcon = L.divIcon
-  className: 'none'
-  html: '<i class="inverted circular anchor icon"></i>'
-  size: L.point 24, 24
-  iconAnchor: L.point 12, 12
-@portIconActive = L.divIcon
-  className: 'none'
-  html: '<i class="inverted circular red anchor icon"></i>'
-  size: L.point 24, 24
-  iconAnchor: L.point 12, 12
+@getPortIcon =->
+  @portIcon ?= L.divIcon
+    className: 'none'
+    html: '<i class="inverted circular anchor icon"></i>'
+    size: L.point 24, 24
+    iconAnchor: L.point 12, 12
+
+@getActivePortIcon = ->
+  @portIconActive = L.divIcon
+    className: 'none'
+    html: '<i class="inverted circular red anchor icon"></i>'
+    size: L.point 24, 24
+    iconAnchor: L.point 12, 12
 
 @portMarkers = []
 
 @panToPort = (port) ->
   for id,marker of portMarkers
-    marker.setIcon portIcon
-  portMarkers[port.id].setIcon portIconActive
+    marker.setIcon getPortIcon()
+  portMarkers[port.id].setIcon getActivePortIcon()
   map.panTo [port.latitude, port.longitude], {animate: true}
   return false
 
 @addPortMarker = (port) ->
-  m = L.marker [port.latitude, port.longitude], {icon: @portIcon}
+  if portMarkers[port.id]?
+    return portMarkers[port.id]
+  m = L.marker [port.latitude, port.longitude], {icon: getPortIcon()}
   portMarkers[port.id] = m
   m.bindPopup('Port of ' + port.title);
   $('#link_port_' + port.id).bind 'click', (event) -> 
