@@ -1,9 +1,11 @@
 <div class="item">
-  <b>Editing ship</<>
-</div>
-<div class="item">
-<%= render 'form' %>
+  <b>Editing ship</b>
+    
+  <%= render 'form' %>
 
-<%= link_to 'Show', @ship %> |
-<%= link_to 'Back', ships_path %>
+  <div class="menu">
+    <%= link_to @ship, class: "item" do %>Show <i class="unhide icon"></i><% end %>
+    <%= link_to ship_path, class: "item" do %>Back <i class="left icon"></i><% end %>
+  </div>
+
 </div>
