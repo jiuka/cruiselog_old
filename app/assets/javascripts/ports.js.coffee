@@ -16,29 +16,28 @@
     size: L.point 24, 24
     iconAnchor: L.point 12, 12
 
-@portMarkers = []
-
 @panToPort = (port) ->
-  for id,marker of portMarkers
+  for id,marker of map.portMarkers
     marker.setIcon getPortIcon()
-  portMarkers[port.id].setIcon getActivePortIcon()
+  map.portMarkers[port.id].setIcon getActivePortIcon()
   map.panTo [port.latitude, port.longitude], {animate: true}
   return false
 
 @addPortMarker = (port) ->
-  if portMarkers[port.id]?
-    return portMarkers[port.id]
+  map.portMarkers ?= []
+  if map.portMarkers[port.id]?
+    return map.portMarkers[port.id].addTo(map);
   m = L.marker [port.latitude, port.longitude], {icon: getPortIcon()}
-  portMarkers[port.id] = m
+  map.portMarkers[port.id] = m
   m.bindPopup('Port of ' + port.title);
   $('#link_port_' + port.id).bind 'click', (event) -> 
     panToPort port
   m.addTo(map);
 
 @editPort = (port) ->
-  portMarkers[port.id].dragging.enable()
+  map.portMarkers[port.id].dragging.enable()
   map.panTo([port.latitude, port.longitude])
-  portMarkers[port.id].on('drag', markerDrag);
+  map.portMarkers[port.id].on('drag', markerDrag);
 
 @markerDrag = (e) ->
   $('#port_location').attr('value',e.target._latlng.lat.toFixed(5) + 'N ' + e.target._latlng.lng.toFixed(5) + 'E')
@@ -53,6 +52,6 @@
   editPort port
 
   map.on 'click', (e) ->
-    portMarkers[0].setLatLng e.latlng
+    map.portMarkers[0].setLatLng e.latlng
     $('#port_location').attr 'value', e.latlng.lat.toFixed(5) + 'N ' + e.latlng.lng.toFixed(5) + 'E'
 
