@@ -1,8 +1,6 @@
---- 
+---
 de:
   ports:
     index:
       list_ports: Hafen Liste
       new_port: Neuer Hafen
-
-

@@ -1,11 +1,12 @@
---- 
+---
 en:
+  back: Back
+  port_of: Port of %{port}
   routes:
+    add: add
+    edit: edit
     lines: lines
+    new: new
     ports: ports
     ships: ships
-    edit: edit
-    new: new
-  port_of: "Port of %{port}"
-  back: Back
   show: Show

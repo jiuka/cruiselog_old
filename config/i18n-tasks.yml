@@ -1,9 +1,9 @@
 # i18n-tasks finds and manages missing and unused translations https://github.com/glebm/i18n-tasks
 
-base_locale: en
+base_locale: de
 ## i18n-tasks detects locales automatically from the existing locale files
 ## uncomment to set locales explicitly
-# locales: [en, es, fr]
+locales: [de, en]
 
 ## i18n-tasks report locale, default: en, available: en, ru
 # internal_locale: ru
@@ -17,7 +17,7 @@ data:
   read:
     - config/locales/%{locale}.yml
     # - config/locales/*.%{locale}.yml
-    # - config/locales/**/*.%{locale}.yml
+    - config/locales/**/*.%{locale}.yml
 
   # key => file routes, matched top to bottom
   write:

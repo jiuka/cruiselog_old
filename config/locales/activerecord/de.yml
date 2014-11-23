@@ -1,0 +1,13 @@
+--- 
+de:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Ungültiger Datensatz"
+      models:
+        port_of_call:
+          attributes:
+            ship:
+              blank: "Kein Schiff wurde aufgewählt"
+            port:
+              blank: "Kein Hafen wurde aufgewählt"

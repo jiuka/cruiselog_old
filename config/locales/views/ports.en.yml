@@ -1,7 +1,6 @@
---- 
+---
 en:
   ports:
     index:
       list_ports: Listing ports
       new_port: New port
-

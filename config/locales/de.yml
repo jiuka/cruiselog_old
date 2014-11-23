@@ -1,12 +1,12 @@
---- 
+---
 de:
+  back: Zurück
+  port_of: Hafen von %{port}
   routes:
+    add: hinzufuegen
+    edit: bearbeiten
     lines: reedereien
+    new: neu
     ports: haefen
     ships: schiffe
-    edit: bearbeiten
-    new: neu
-    add: hinzufuegen
-  port_of: "Hafen von %{port}"
-  back: Zurück
   show: Anzeigen
