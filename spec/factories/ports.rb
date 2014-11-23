@@ -4,6 +4,7 @@ FactoryGirl.define do
     title "MyString"
     country "DE"
     location ""
+    tz "Dublin"
   end
 
 end

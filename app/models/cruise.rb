@@ -8,11 +8,19 @@ class Cruise < ActiveRecord::Base
   belongs_to :ship
   has_many :segments, class_name: 'CruiseSegment'
 
+  validates :ship, presence: true
+  validates :embark, presence: true
+  validates :disembark, presence: true
+
   def slug_candidates
     [
-      [ship.title, :title],
-      [ship.title, :title, :id],
+      [:ship_title, :title],
+      [:ship_title, :title, :id],
     ]
+  end
+
+  def ship_title
+    ship.try(:title) || nil
   end
 
   def ports

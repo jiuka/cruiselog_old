@@ -11,24 +11,16 @@ RSpec.describe PortOfCall, :type => :model do
     end
 
     it 'arrive to be earlyer then leave' do
-      port = build(:port_of_call, arrive: Time.now, leave: Time.now-10)
+      port = build(:port_of_call, arrive: Time.now.to_s, leave: (Time.now-10).to_s)
       expect(port).to_not be_valid
     end
 
-    it 'arrive to be present' do
-      expect validate_presence_of :arrive
-    end
-
-    it 'leave to be present' do
-      expect validate_presence_of :leave
-    end
-
     it 'port to be present' do
-      expect validate_presence_of :port
+      expect(build(:port_of_call, :port => nil)).to_not be_valid
     end
 
     it 'ship to be present' do
-      expect validate_presence_of :ship
+      expect(build(:port_of_call, :ship => nil)).to_not be_valid
     end
   end
 end

@@ -2,6 +2,9 @@ class Port < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  validates :country, presence: true
+  validates_inclusion_of :tz, :in => ActiveSupport::TimeZone.all.map { |tz| tz.name }
+
   def slug_candidates
     [
       :title,
