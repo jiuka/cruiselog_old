@@ -2,6 +2,9 @@ class Cruise < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  belongs_to :embark, class_name: 'PortOfCall'
+  belongs_to :disembark, class_name: 'PortOfCall'
+
   belongs_to :ship
   has_many :segments, class_name: 'CruiseSegment'
 
@@ -13,8 +16,13 @@ class Cruise < ActiveRecord::Base
   end
 
   def ports
-    if self.segments.length > 0
-      [self.segments[0].from] + self.segments.map { |p| p.to }
+    itinerary.map { |poc| p.port }
+  end
+
+  def itinerary
+    if embark && disembark
+      ship.port_of_call.where("leave >= :embark and arrive <= :disembark",
+                       {embark: embark.leave, disembark: disembark.arrive}).order(:orderdate)
     else
       []
     end

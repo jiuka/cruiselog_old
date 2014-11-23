@@ -2,15 +2,19 @@
   <b><%= @cruise.ship.title %> - <%= @cruise.title %></b>
   <p id="notice"><%= notice %></p>
 
-  <ul class="itinerary">
-    <li class="port"><i class="inverted circular anchor icon"></i><%= @cruise.segments[0].from.title %></li>
-    <% @cruise.segments.each do |section| %>
-      <li class="time leave">Leave: <%= section.leave %></li>
-      <li class="time arrive">Arrive: <%= section.arrive %></li>
-      <li class="port"><i class="inverted circular anchor icon"></i><%= section.to.title %></li>
-    <% end %>
-    <li class="port"><i class="inverted circular add icon"></i><%= link_to 'Add next Port', new_cruise_cruise_segment_path(@cruise) %></li>
-  </ul>
+  <% if @cruise.itinerary %>
+    <ul class="itinerary">
+      <li class="port"><i class="inverted circular anchor icon"></i><%= @cruise.itinerary[0].port.title %></li>
+      <li class="time leave">Leave: <%= @cruise.itinerary[0].leave %></li>
+      <% @cruise.itinerary[1..-2].each do |poc| %>
+        <li class="time arrive">Arrive: <%= poc.arrive %></li>
+        <li class="port"><i class="inverted circular anchor icon"></i><%= poc.port.title %></li>
+        <li class="time leave">Leave: <%= poc.leave %></li>
+      <% end %>
+      <li class="time arrive">Arrive: <%= @cruise.itinerary[1].arrive %></li>
+      <li class="port"><i class="inverted circular anchor icon"></i><%= @cruise.itinerary[-1].port.title %></li>
+    </ul>
+  <% end %>
 
 <%= link_to 'Edit', edit_cruise_path(@cruise) %> |
 <%= link_to 'Back', cruises_path %>
