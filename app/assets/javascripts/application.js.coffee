@@ -14,7 +14,6 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require leaflet
-#= require leaflet-editable-polyline
 #= require_tree .
 
 exports = this
