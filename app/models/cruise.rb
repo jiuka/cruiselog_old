@@ -2,11 +2,9 @@ class Cruise < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  belongs_to :ship
   belongs_to :embark, class_name: 'PortOfCall'
   belongs_to :disembark, class_name: 'PortOfCall'
-
-  belongs_to :ship
-  has_many :segments, class_name: 'CruiseSegment'
 
   validates :ship, presence: true
   validates :embark, presence: true

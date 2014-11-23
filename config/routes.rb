@@ -12,10 +12,6 @@ Rails.application.routes.draw do
     end
     resources :ports
     resources :lines
-     resources :cruises
-    resources :cruises, only: [:index, :create] do
-      resources :cruise_segments, only: [:index, :create], path: 'segments'
-      resources :cruise_segments, except: [:index, :create], path: '', path_names: { new: 'add'}
-    end
+    resources :cruises
   end
 end
