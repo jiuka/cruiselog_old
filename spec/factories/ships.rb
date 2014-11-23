@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :ship do
     title "MyString"
-    line nil
+    line
     port_of_origin nil
   end
 

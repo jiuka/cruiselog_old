@@ -7,6 +7,8 @@ class Ship < ActiveRecord::Base
   belongs_to :line
   belongs_to :port_of_origin, class_name: "Port"
 
+  validates :line, presence: true
+
   def slug_candidates
     [
       :title,
