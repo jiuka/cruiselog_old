@@ -1,4 +1,5 @@
 class PortOfCallsController < ApplicationController
+  include PortOfCallsHelper
   before_action :set_port_of_call, only: [:show, :edit, :update, :destroy]
 
   # GET /port_of_calls

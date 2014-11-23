@@ -69,6 +69,6 @@ class CruisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cruise_params
-      params.require(:cruise).permit(:title, :ship_id)
+      params.require(:cruise).permit(:title, :ship_id, :embark_id, :disembark_id)
     end
 end
