@@ -19,6 +19,14 @@
     <%= f.label :ship_id %><br>
     <%= f.collection_select :ship_id, Ship.all, :id, :title%>
   </div>
+  <div class="field">
+    <%= f.label :embark_id %><br>
+    <%= f.collection_select :embark_id, PortOfCall.all, :id, :title%>
+  </div>
+  <div class="field">
+    <%= f.label :disembark_id %><br>
+    <%= f.collection_select :disembark_id, PortOfCall.all, :id, :title%>
+  </div>
   <div class="actions">
     <%= f.submit class: "ui blue submit button"%>
   </div>

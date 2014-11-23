@@ -30,6 +30,10 @@ class PortOfCall < ActiveRecord::Base
     self[:leave].in_time_zone(port.try(:tz) || 'UTC')
   end
 
+  def title
+    "#{port.title} - #{ship.title} - #{arrive}"
+  end
+
   private
   def updateOrderDate
     self[:orderdate] = self.arrive || self.leave
