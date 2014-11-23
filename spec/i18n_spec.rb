@@ -12,7 +12,7 @@ describe 'I18n' do
   end
 
   it 'does not have unused keys' do
-    expect(i18n.unused_keys).to be_empty,
+    expect(i18n.unused_keys.select_keys { |key, _node| key !~ /^routes\./ }).to be_empty,
                                 "#{unused_keys.leaves.count} unused i18n keys, run `i18n-tasks unused' to show them"
   end
 end
