@@ -58,7 +58,15 @@ gem 'country_select'
 # Localised Routes
 gem 'route_translator'
 
+# Validators
+gem 'date_validator'
+
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'i18n-tasks', require: false
+end
+
+group :test do
+  gem 'shoulda-matchers', require: false
 end
