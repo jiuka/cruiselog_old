@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125043404) do
+ActiveRecord::Schema.define(version: 20141125184844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,10 +65,17 @@ ActiveRecord::Schema.define(version: 20141125043404) do
     t.string   "encrypted_password", limit: 128, null: false
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128, null: false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "fullname"
+    t.datetime "birthday"
+    t.string   "sex"
+    t.string   "slug"
   end
 
   add_index "passengers", ["email"], :name => "index_passengers_on_email"
   add_index "passengers", ["remember_token"], :name => "index_passengers_on_remember_token"
+  add_index "passengers", ["slug"], :name => "index_passengers_on_slug", :unique => true
 
   create_table "port_of_calls", force: true do |t|
     t.integer  "ship_id"

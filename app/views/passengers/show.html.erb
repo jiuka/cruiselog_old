@@ -1,0 +1,16 @@
+<div class="item">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @passenger.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @passenger.lastname %>
+</p>
+
+<%= link_to 'Edit', edit_passenger_path(@passenger) %> |
+<%= link_to 'Back', passengers_path %>
+</div>

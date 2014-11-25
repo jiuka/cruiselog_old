@@ -1,0 +1,9 @@
+<div class="item">
+  <b>Listing passengers</b>
+  <div class="menu">
+    <% @passengers.each do |passenger| %>
+      <%= link_to passenger.fullname, passenger, class: "item" %>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'New Passenger', new_passenger_path, class: "item" %>

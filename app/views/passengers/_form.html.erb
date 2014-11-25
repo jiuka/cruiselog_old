@@ -1,0 +1,25 @@
+<%= form_for(@passenger, html: {class: "ui error form"}) do |f| %>
+  <% if @passenger.errors.any? %>
+    <div class="ui error message">
+      <div class="header">><%= pluralize(@passenger.errors.count, "error") %> prohibited this passenger from being saved:</div>
+
+      <ul class="list">
+      <% @passenger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "ui blue submit button"%>
+  </div>
+<% end %>
