@@ -16,7 +16,11 @@ class PortOfCall < ActiveRecord::Base
   end
 
   def arrive
-    self[:arrive].in_time_zone(port.try(:tz) || 'UTC')
+    if self[:arrive]
+      self[:arrive].in_time_zone(port.try(:tz) || 'UTC')
+    else
+      self[:arrive]
+    end
   end
 
   def leave=(s)
@@ -27,7 +31,11 @@ class PortOfCall < ActiveRecord::Base
   end
 
   def leave
-    self[:leave].in_time_zone(port.try(:tz) || 'UTC')
+    if self[:leave]
+      self[:leave].in_time_zone(port.try(:tz) || 'UTC')
+    else
+      nil
+    end
   end
 
   def title

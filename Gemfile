@@ -61,6 +61,9 @@ gem 'route_translator'
 # Validators
 gem 'date_validator'
 
+# Default Translations
+gem 'rails-i18n'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
