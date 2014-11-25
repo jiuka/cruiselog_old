@@ -3,9 +3,9 @@
 
   <div class="menu">
     <% @port_of_calls.each do |port_of_call| %>
-      <%= link_to port_of_call.port, class: "item" do "#{port_of_call.port.title} #{port_of_call.arrive}" end %>
+      <%= link_to port_of_call, class: "item" do "#{port_of_call.port.title} #{port_of_call.arrive}" end %>
     <% end %>
   </div>
 
-<%= link_to 'New Port of call', new_port_of_call_path %>
+  <%= link_to 'New Port of call', new_port_of_call_path %>
 </div>

@@ -1,26 +1,26 @@
 <div class="item">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ship:</strong>
-  <%= @port_of_call.ship %>
-</p>
+  <p>
+    <strong>Ship:</strong>
+    <%= @port_of_call.ship.title %>
+  </p>
 
-<p>
-  <strong>Port:</strong>
-  <%= @port_of_call.port %>
-</p>
+  <p>
+    <strong>Port:</strong>
+    <%= @port_of_call.port.title %>
+  </p>
 
-<p>
-  <strong>Arrive:</strong>
-  <%= @port_of_call.arrive %>
-</p>
+  <p>
+    <strong>Arrive:</strong>
+    <%= @port_of_call.arrive %>
+  </p>
 
-<p>
-  <strong>Leave:</strong>
-  <%= @port_of_call.leave %>
-</p>
+  <p>
+    <strong>Leave:</strong>
+    <%= @port_of_call.leave %>
+  </p>
 
-<%= link_to 'Edit', edit_port_of_call_path(@port_of_call) %> |
-<%= link_to 'Back', port_of_calls_path %>
+  <%= link_to 'Edit', edit_port_of_call_path(@port_of_call) %> |
+  <%= link_to 'Back', port_of_calls_path %>
 </div>

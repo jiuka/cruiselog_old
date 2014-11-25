@@ -11,3 +11,12 @@ de:
               blank: "Kein Schiff wurde aufgewählt"
             port:
               blank: "Kein Hafen wurde aufgewählt"
+    attributes:
+      port_of_call:
+        port: Hafen
+        arrive: Ankunft
+        leave: Abfahrt
+    submit:
+      port_of_call:
+        create: 'Hafen hinzufügen'
+        update: 'Hafen aktualisieren'
