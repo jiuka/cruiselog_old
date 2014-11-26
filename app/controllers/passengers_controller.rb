@@ -37,19 +37,19 @@ class PassengersController < Clearance::UsersController
 ##    end
 ##  end
 ##
-##  # PATCH/PUT /passengers/1
-##  # PATCH/PUT /passengers/1.json
-##  def update
-##    respond_to do |format|
-##      if @passenger.update(passenger_params)
-##        format.html { redirect_to @passenger, notice: 'Passenger was successfully updated.' }
-##        format.json { render :show, status: :ok, location: @passenger }
-##      else
-##        format.html { render :edit }
-##        format.json { render json: @passenger.errors, status: :unprocessable_entity }
-##      end
-##    end
-##  end
+  # PATCH/PUT /passengers/1
+  # PATCH/PUT /passengers/1.json
+  def update
+    respond_to do |format|
+      if @passenger.update(passenger_params)
+        format.html { redirect_to @passenger, notice: 'Passenger was successfully updated.' }
+        format.json { render :show, status: :ok, location: @passenger }
+      else
+        format.html { render :edit }
+        format.json { render json: @passenger.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 ##
 ##  # DELETE /passengers/1
 ##  # DELETE /passengers/1.json
