@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125184844) do
+ActiveRecord::Schema.define(version: 20141126154437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,10 +42,12 @@ ActiveRecord::Schema.define(version: 20141125184844) do
     t.string   "slug"
     t.integer  "embark_id"
     t.integer  "disembark_id"
+    t.integer  "passenger_id"
   end
 
   add_index "cruises", ["disembark_id"], :name => "index_cruises_on_disembark_id"
   add_index "cruises", ["embark_id"], :name => "index_cruises_on_embark_id"
+  add_index "cruises", ["passenger_id"], :name => "index_cruises_on_passenger_id"
   add_index "cruises", ["ship_id"], :name => "index_cruises_on_ship_id"
   add_index "cruises", ["slug"], :name => "index_cruises_on_slug", :unique => true
 
