@@ -64,6 +64,9 @@ gem 'date_validator'
 # Default Translations
 gem 'rails-i18n'
 
+# load config from .env
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

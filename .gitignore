@@ -19,3 +19,6 @@ vendor/ruby/
 # Ignore Vagrant file
 /.vagrant
 /puppet/modules/
+
+# Ignore dotenv config
+/.env

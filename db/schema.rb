@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126154437) do
+ActiveRecord::Schema.define(version: 20141126185131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,11 @@ ActiveRecord::Schema.define(version: 20141126154437) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.string   "imo"
+    t.spatial  "location",          limit: {:srid=>0, :type=>"point"}
+    t.string   "location_desc"
+    t.float    "heading"
+    t.datetime "location_update"
   end
 
   add_index "ships", ["line_id"], :name => "index_ships_on_line_id"
