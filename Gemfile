@@ -67,6 +67,9 @@ gem 'rails-i18n'
 # load config from .env
 gem 'dotenv-rails'
 
+# Schedule Tasks
+gem 'whenever', :require => false
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
