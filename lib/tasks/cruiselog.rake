@@ -33,8 +33,9 @@ namespace :cruiselog do
           next
         end
 
-        unless ship.location_update < DateTime.parse(vessel['positionreceived'])
+        if ship.location_update and ship.location_update >= DateTime.parse(vessel['positionreceived'])
           puts " not updated"
+          next
         end
 
         ship.location = "POINT(#{vessel['latitude']} #{vessel['longitude']})"
