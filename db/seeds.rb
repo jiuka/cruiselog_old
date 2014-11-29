@@ -26,12 +26,14 @@ Ship.create([
   {
     title: 'Queen Mary 2',
     line: Line.find_by(:title => 'Cunard Line'),
-    port_of_origin: Port.find_by(:title => 'Southampton')
+    port_of_origin: Port.find_by(:title => 'Southampton'),
+    imo: '310627000'
   },
   {
     title: 'Queen Elisabeth',
     line: Line.find_by(:title => 'Cunard Line'),
-    port_of_origin: Port.find_by(:title => 'Southampton')
+    port_of_origin: Port.find_by(:title => 'Southampton'),
+    imo: '310625000'
   },
 ])
 
