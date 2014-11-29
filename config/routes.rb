@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
   resource :session, controller: 'clearance/sessions', only: [:create]
 
-  get '/passengers/go_abord' => 'clearance/sessions#new', as: 'sign_in'
-  delete '/passenger/go_ashore' => 'clearance/sessions#destroy', as: 'sign_out'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,6 +10,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   localized do
+    get '/passengers/go_abord' => 'clearance/sessions#new', as: 'sign_in'
+    delete '/passengers/go_ashore' => 'clearance/sessions#destroy', as: 'sign_out'
+        
     resources :ships do
       resources :port_of_calls
     end
