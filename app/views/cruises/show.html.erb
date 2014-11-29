@@ -19,3 +19,21 @@
 <%= link_to 'Edit', edit_cruise_path(@cruise) %> |
 <%= link_to 'Back', cruises_path %>
 </div>
+<% content_for :post_map_js do %>
+  <% last_poc = nil %>
+  <% @cruise.itinerary.each do |poc| %>
+    <% map_marker(poc.port) %>
+    <% if last_poc %>
+      <%
+          route = Route.find_by(:from => last_poc.port.id, :to => poc.port.id)
+      if route
+        route = route.line
+      else
+        route = [[last_poc.port.latitude,last_poc.port.longitude],[poc.port.latitude,poc.port.longitude]]
+      end
+      %>
+    addCruiseSegment('<%= last_poc.id %>_<%= poc.id %>', <%= route %>);
+    <% end %>
+    <% last_poc = poc %>
+  <% end %>
+<% end %>

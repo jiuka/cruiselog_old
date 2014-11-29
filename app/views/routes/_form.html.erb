@@ -1,0 +1,33 @@
+<%= form_for(@route, html: {class: "ui error form"}) do |f| %>
+  <% if @route.errors.any? %>
+    <div class="ui error message">
+      <div class="header">><%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:</div>
+
+      <ul class="list">
+      <% @route.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :from_id %>
+    <%= f.collection_select :from_id, Port.all, :id, :title %>
+  </div>
+  <div class="field">
+    <%= f.label :to_id %>
+    <%= f.collection_select :to_id, Port.all, :id, :title %>
+  </div>
+  <div class="field">
+    <%= f.label :line %><br>
+    <%= f.text_field :line %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "ui blue submit button"%>
+  </div>
+<% end %>

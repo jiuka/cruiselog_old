@@ -45,10 +45,10 @@ class CruiseSegment extends L.Polyline
     for marker in @markers by 2
       latlngs.push marker.getLatLng()
     @line.setLatLngs latlngs
-    $('#cruise_segment_route').attr 'value', latlngs
+    $('#route_line').attr 'value', latlngs
 
   addPortMarker: (idx, latlng) ->
-    m = L.marker latlng, {icon: portIcon}
+    m = L.marker latlng, {icon: getPortIcon()}
     @markers.push m
     m.addTo map
 

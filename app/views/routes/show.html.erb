@@ -1,0 +1,25 @@
+<div class="item">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @route.from.title %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @route.to.title %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
+</div>
+
+<% content_for :post_map_js do %>
+addCruiseSegment('<%= @route.id %>', <%= @route.line %>);
+<% end %>

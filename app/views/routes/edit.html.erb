@@ -1,0 +1,13 @@
+<div class="item">
+  <b>Editing route</<>
+</div>
+<div class="item">
+<%= render 'form' %>
+
+<%= link_to 'Show', @route %> |
+<%= link_to 'Back', routes_path %>
+</div>
+<% content_for :post_map_js do %>
+addCruiseSegment('<%= @route.id %>', <%= @route.line %>);
+editCruiseSegment('<%= @route.id %>');
+<% end %>
