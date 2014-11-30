@@ -2,10 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-@segmentMarkerMove = L.divIcon { className: 'none', html: '<i class="inverted circular mini fullscreen icon"></i>' }
-@segmentMarkerAdd = L.divIcon { className: 'none', html: '<i class="inverted circular mini add icon"></i>', size: L.point(24, 24), iconAnchor: L.point(12, 12) }
-
 @cruiseSegments = {}
 
 @addCruiseSegment = (name, points) ->
@@ -53,7 +49,7 @@ class CruiseSegment extends L.Polyline
     m.addTo map
 
   addPointMarker: (idx, latlng) ->
-    m = L.marker latlng, {icon: segmentMarkerMove, draggable: true}
+    m = L.marker latlng, {icon: getMoveIcon(), draggable: true}
     @markers.push m
     m.on 'drag', @pointMoved.bind this
     m.addTo map
@@ -71,7 +67,7 @@ class CruiseSegment extends L.Polyline
     idx = @markers.indexOf(e.target)
 
     # Set new Icon
-    @markers[idx].setIcon segmentMarkerMove
+    @markers[idx].setIcon getMoveMarker()
 
     # Add Marker behind
     latlng = @_latLngMiddle @markers[idx].getLatLng(), @markers[idx+1].getLatLng()
@@ -84,7 +80,7 @@ class CruiseSegment extends L.Polyline
     @update()
 
   addMiddleMarker: (idx, latlng) ->
-    m = L.marker latlng, {icon: segmentMarkerAdd, draggable: true}
+    m = L.marker latlng, {icon: getAddIcon(), draggable: true}
     @markers.splice idx, 0, m
     m.once 'dragstart', @middleToPoint.bind this
     m.on 'drag', @pointMoved.bind this
