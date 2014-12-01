@@ -4,12 +4,15 @@
 
 @cruiseSegments = {}
 
-@addCruiseSegment = (name, points) ->
-  pl = new CruiseSegment points
-  cruiseSegments[name] = pl
-
 @editCruiseSegment = (name) ->
   cruiseSegments[name].edit()
+
+@addCruiseSegment = (from, to) ->
+  $.ajax
+    url: '/routes/'+from+'/to/'+to+'.json',
+    success: (xhr) ->
+      pl = new CruiseSegment xhr.line
+      cruiseSegments[from+'/to/'+to] = pl
 
 # Segment Editor
 class CruiseSegment extends L.Polyline

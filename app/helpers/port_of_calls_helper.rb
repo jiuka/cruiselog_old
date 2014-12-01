@@ -24,4 +24,13 @@ module PortOfCallsHelper
     ship_port_of_call_url(poc.ship.friendly_id, poc, url_options)
   end
 
+
+  def add_segments_to_map(pocs)
+    pocs.each_cons(2) do |from,to|
+      content_for(:post_map_js) do
+        raw("addCruiseSegment(#{from.port_id},#{to.port_id});")
+      end
+    end
+  end
+
 end

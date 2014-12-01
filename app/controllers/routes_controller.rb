@@ -64,7 +64,11 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.find(params[:id])
+      if params.has_key?(:id)
+        @route = Route.find(params[:id])
+      else
+        @route = Route.find_or_initialize_by(:from_id => params[:from], :to_id => params[:to])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
