@@ -11,6 +11,13 @@
   <%= @passenger.lastname %>
 </p>
 
+<div class="menu">
+  <% @passenger.cruise.each do |cruise| %>
+    <%= link_to cruise.title, cruise, class: "item" %>
+    <% add_segments_to_map(cruise.itinerary) %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_passenger_path(@passenger) %> |
 <%= link_to 'Change Password', new_password_path %> |
 <%= link_to 'Back', passengers_path %>
