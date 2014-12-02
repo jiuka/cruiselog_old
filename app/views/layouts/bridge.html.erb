@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cruiselog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="home">
+
+<div id="menu" class="ui large vertical inverted labeled icon right sidebar menu active">
+  <div class="item">
+    <i class="inverted circular red awesome globe icon"></i>
+    <b>CruiseLog</b>
+    <div>
+<% if signed_in? %>
+  <%= link_to sign_out_path, method: :delete do %><i class="sign out icon"></i><%=t 'sign_out' %><% end %>
+<% else %>
+  <%= link_to sign_in_path do %><i class="sign in icon"></i><%=t 'sign_in' %><% end  %> |
+  <%= link_to sign_up_path do %><i class="write icon"></i><%=t 'sign_up' %><% end %>
+<% end %>
+    </div>
+  </div>
+  <%= yield :menu %>
+</div>
+<div id="map">
+  <%= yield %>
+</div>
+
+
+</body>
+</html>

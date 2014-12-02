@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :port_of_calls
     end
     resources :ports
-    resources :lines
+    resources :lines, only: [:index, :show]
     resources :cruises
     resources :passengers, path_names: { new: 'embark' } do
       resource :password,
@@ -30,4 +30,11 @@ Rails.application.routes.draw do
         only: [:create, :edit, :update]
     end
   end
+
+  constraints Clearance::Constraints::SignedIn.new { |user| user.captain? } do
+    namespace :bridge do
+      resources :lines
+    end
+  end
+
 end

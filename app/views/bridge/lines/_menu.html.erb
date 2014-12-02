@@ -1,0 +1,12 @@
+<% content_for :menu do %>
+<div class="item">
+  <b>Cruise Lines</b>
+
+  <div class="menu">
+    <% @lines.each do |line| %>
+      <%= link_to line.title, bridge_line_path(line), class: 'item' %>
+    <% end %>
+    <%= link_to 'New Line', new_bridge_line_path, class: 'item' %>
+  </div>
+</div>
+<% end %>

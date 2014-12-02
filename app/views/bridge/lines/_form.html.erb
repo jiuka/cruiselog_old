@@ -1,0 +1,21 @@
+<%= form_for(@line, url: bridge_line_path(@line), html: {class: "ui error form"}) do |f| %>
+  <% if @line.errors.any? %>
+    <div class="ui error message">
+      <div class="header"><%= pluralize(@line.errors.count, "error") %> prohibited this bridge_line from being saved:</div>
+
+      <ul class="list">
+      <% @line.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "ui blue submit button"%>
+  </div>
+<% end %>
