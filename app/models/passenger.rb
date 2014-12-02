@@ -12,9 +12,12 @@ class Passenger < ActiveRecord::Base
     ]
   end
 
-
   def fullname
     self[:fullname] || "#{firstname} #{lastname}"
+  end
+
+  def captain?
+    return self[:captain]
   end
 
 end

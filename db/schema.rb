@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129195546) do
+ActiveRecord::Schema.define(version: 20141202055010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,18 +61,19 @@ ActiveRecord::Schema.define(version: 20141129195546) do
   add_index "lines", ["slug"], :name => "index_lines_on_slug", :unique => true
 
   create_table "passengers", force: true do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "email",                                          null: false
+    t.string   "encrypted_password", limit: 128,                 null: false
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
+    t.string   "remember_token",     limit: 128,                 null: false
     t.string   "firstname"
     t.string   "lastname"
     t.string   "fullname"
     t.datetime "birthday"
     t.string   "sex"
     t.string   "slug"
+    t.boolean  "captain",                        default: false
   end
 
   add_index "passengers", ["email"], :name => "index_passengers_on_email"
